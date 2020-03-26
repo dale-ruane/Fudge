@@ -21,8 +21,9 @@ func stringToByte(data string) []byte {
 }
 func mungeScript(fileContents string, outputName string) string {
 	var js []string
-	js = append(js, "var saveData=function(){var e=document.createElement('a');return document.body.appendChild(e),e.style='display: none',function(o,n){blob=new Blob([atob(o)],{type:'octet/stream'}),url=window.URL.createObjectURL(blob),e.href=url,e.download=n,window.navigator&&window.navigator.msSaveOrOpenBlob?window.navigator.msSaveOrOpenBlob(blob,n):(e.click(),window.URL.revokeObjectURL(url))}}();")
+	js = append(js, "var saveData=function(){var e=document.createElement('a');return document.body.appendChild(e),e.style='display: none',function(n,o){const t=atob(n),a=new Array(t.length);for(let e=0;e<t.length;e++)a[e]=t.charCodeAt(e);const r=new Uint8Array(a);blob=new Blob([r],{type:'octet/stream'}),url=window.URL.createObjectURL(blob),e.href=url,e.download=o,window.navigator&&window.navigator.msSaveOrOpenBlob?window.navigator.msSaveOrOpenBlob(blob,o):(e.click(),window.URL.revokeObjectURL(url))}}();")
 	js = append(js, "saveData('"+fileContents+"', '"+outputName+"')")
+	fmt.Println(fileContents)
 	return strings.Join(js, "")
 }
 
@@ -36,7 +37,7 @@ func outputHTML(jsb64 string) string {
 	html = append(html, "<html><head><title>this is evil run away</title></head><body>so much fudge</body><script>eval(atob('"+jsb64+"'))</script></html>")
 	err := ioutil.WriteFile("output.html", stringToByte(strings.Join(html, "")), 0644)
 	check(err)
-	return "hi"
+	return ""
 }
 
 func main() {

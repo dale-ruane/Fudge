@@ -8,7 +8,7 @@ There are precompiled binaries available on the [releases](https://github.com/da
 
 If you have Go set up on your system you can download the latest version from the repo with:
 
-    go get https://github.com/dale-ruane/Fudge.git
+    go get github.com/dale-ruane/Fudge
 
 ## Command line reference
       -n string

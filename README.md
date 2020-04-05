@@ -21,7 +21,10 @@ Use the above flags to set the file to encode, and the filename which will be gi
 ## Example usage
 
     ./Fudge -s implant.exe -n passwordchecker.exe
-The above will produce  **output.html** which will contain implant.exe and when the user opens the HTML file it will be named passwordchecker.exe. 
+The above will produce  **output.html** which will contain implant.exe and when the user opens the HTML file it will be named passwordchecker.exe.
+
+## Tutorial Video
+[![YouTube Tutorial](https://img.youtube.com/vi/o-MPQnvGQ28/0.jpg)](https://www.youtube.com/watch?v=o-MPQnvGQ28)
 
 # Supported Files
 As far as I am aware, any source file should work. As Fudge uses the raw bytes of the original file, they should be identical when they land on the target host.
